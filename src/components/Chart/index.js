@@ -1,11 +1,13 @@
 import React from 'react'
 import data from './Data'
 import * as V from 'victory'
-import { VictoryLine, VictoryChart, VictoryTheme, VictoryZoomContainer } from 'victory';
+import { VictoryLine, VictoryChart, VictoryTheme, VictoryZoomContainer, VictoryAxis} from 'victory';
 
 const Chart = () => {
     const newData = [{x: Date.now(), y: data[0].price[data[0].price.length-1]},
-                    {x: Date.now(), y: data[0].price[data[0].price.length - 2]}]
+                    {x: 1635936279070, y: data[0].price[data[0].price.length - 2]},
+                    {x: 1635938292070, y: data[0].price[data[0].price.length - 3]}
+                        ]
                 
 
     return (
@@ -13,12 +15,13 @@ const Chart = () => {
             <VictoryChart>
             <VictoryZoomContainer
             allowZoom={false}
+            allowPan={true}
             zoomDomain={{x:[0,1]}}
             />
             <VictoryLine style={{
       data: { stroke: "#c43a31" },
       parent: { border: "1px solid #ccc"}
-    }} data={newData} x="date" y="price"/>
+    }} data={newData} />
             </VictoryChart>
             
         </div>
