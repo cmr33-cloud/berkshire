@@ -3,19 +3,22 @@ import data from './Data'
 import { VictoryLine, VictoryChart, VictoryTheme, VictoryAxis } from 'victory';
 
 const Chart = () => {
-    const newData = [{x: Date.now(), y: data[0].price[data[0].price.length-1]},
-                    {x: 1635936279070, y: data[0].price[data[0].price.length - 2]},
-                    {x: 1635938292070, y: data[0].price[data[0].price.length - 3]}
+    const newData = [{x: 1, y: data[0].price[data[0].price.length-1]},
+                    {x: 2, y: data[0].price[data[0].price.length - 2]},
+                    {x: 3, y: data[0].price[data[0].price.length - 3]},
+                    {x: 4, y: data[0].price[data[0].price.length - 4]}
                         ]
                 
 
     return (
         <div>
-            <VictoryChart>
+            <VictoryChart theme={VictoryTheme.material}>
             <VictoryAxis 
             orientation="bottom"
-            standalone={true}
+            standalone={false}
             fixLabelOverlap={true}
+            tickFormat={() => ''}
+            label="Date"
           />
           <VictoryAxis dependentAxis
             orientation="left"
