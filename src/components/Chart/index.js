@@ -12,12 +12,10 @@ const Chart = () => {
 
     return (
         <div>
-            <VictoryChart>
-            <VictoryZoomContainer
-            allowZoom={false}
-            allowPan={true}
-            zoomDomain={{x:[0,1]}}
-            />
+            <VictoryChart containerComponent={<VictoryZoomContainer
+                allowZoom={true}
+                allowPan={true}
+                />}>
             <VictoryLine style={{
       data: { stroke: "#c43a31" },
       parent: { border: "1px solid #ccc"}
