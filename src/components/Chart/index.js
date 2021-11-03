@@ -1,31 +1,26 @@
 import React from 'react'
-import {Line} from 'react-chartjs-2'
+import data from './Data'
+import * as V from 'victory'
+import { VictoryLine, VictoryChart, VictoryTheme, VictoryZoomContainer } from 'victory';
 
 const Chart = () => {
-
-const data = {
-    labels: ['P1', 'P2', 'P3', 'P4', 'P5'],
-    datasets: [
-        {
-            "label": "Price",
-            "name": "Nikkei",
-            "data": [8.1,8.4,7.8,7.5, 8.2],
-            "rating": 'A'
-          }
-    ]
-}
-
-const options = {
-    scales: {
-      y:  {
-          beginAtZero: true
-      }
-    }
-}
+    const newData = [{x: Date.now(), y: data[0].price[data[0].price.length-1]},
+                    {x: Date.now(), y: data[0].price[data[0].price.length - 2]}]
+                
 
     return (
         <div>
-        <Line data={data} options={options} />
+            <VictoryChart>
+            <VictoryZoomContainer
+            allowZoom={false}
+            zoomDomain={{x:[0,1]}}
+            />
+            <VictoryLine style={{
+      data: { stroke: "#c43a31" },
+      parent: { border: "1px solid #ccc"}
+    }} data={newData} x="date" y="price"/>
+            </VictoryChart>
+            
         </div>
     )
 }

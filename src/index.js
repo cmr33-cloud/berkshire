@@ -8,7 +8,6 @@ import Chart from './components/Chart/index'
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Chart />
   </React.StrictMode>,
   document.getElementById('root')
 );
