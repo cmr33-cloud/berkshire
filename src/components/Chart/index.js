@@ -4,18 +4,30 @@ import * as V from 'victory'
 import { VictoryLine, VictoryChart, VictoryTheme, VictoryZoomContainer, VictoryAxis} from 'victory';
 
 const Chart = () => {
-    const newData = [{x: Date.now(), y: data[0].price[data[0].price.length-1]},
-                    {x: 1635936279070, y: data[0].price[data[0].price.length - 2]},
-                    {x: 1635938292070, y: data[0].price[data[0].price.length - 3]}
+    const newData = [{x: 1, y: data[0].price[data[0].price.length-1]},
+                    {x: 2, y: data[0].price[data[0].price.length - 2]},
+                    {x: 3, y: data[0].price[data[0].price.length - 3]},
+                    {x: 4, y: data[0].price[data[0].price.length - 4]}
                         ]
                 
 
     return (
         <div>
-            <VictoryChart containerComponent={<VictoryZoomContainer
+            <VictoryChart theme={VictoryTheme.material} containerComponent={<VictoryZoomContainer
                 allowZoom={true}
                 allowPan={true}
                 />}>
+            <VictoryAxis 
+            orientation="bottom"
+            standalone={false}
+            fixLabelOverlap={true}
+            tickFormat={() => ''}
+            label="Date"
+          />
+          <VictoryAxis dependentAxis
+            orientation="left"
+            standalone={false}
+          />
             <VictoryLine style={{
       data: { stroke: "#c43a31" },
       parent: { border: "1px solid #ccc"}
